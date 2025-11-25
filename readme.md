@@ -91,7 +91,7 @@ Voici la liste des fichiers et liens importants pour évaluer notre travail :
 
 **🔗 Liens Utiles :**
 
-* [**LIEN VERS LA VIDÉO DE PRÉSENTATION** (Google Drive / YouTube)](https://www.youtube.com/)  
+* [**LIEN VERS LA VIDÉO DE PRÉSENTATION** (YouTube)](https://www.youtube.com/watch?v=AcjUPxBl_YY)  
 
 ### **4\. Réponses aux Questions d'Analyse**
 
