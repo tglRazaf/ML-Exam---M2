@@ -132,6 +132,22 @@ Notre modèle final (XGBoost) a trouvé un **excellent compromis** :
 - Maintenir les Faux Positifs à seulement **62**, ce qui est gérable et préserve l'expérience utilisateur.
 
 > **Conclusion :** Bien que les deux types d'erreurs soient dommageables, la perte de confiance due aux FN est **structurelle** pour une fintech en démarrage.
+**structurelle** pour une fintech en démarrage.
+
+**Q3. Stratégie de Modélisation : Quelles nouvelles variables (Feature Engineering) ont le plus amélioré votre modèle par rapport à la Baseline ?**
+
+Les variables de **Feature Engineering** basées sur le comportement ont été les plus déterminantes, propulsant le F1-Score de **0.1416** à **0.7117**. 
+
+#### Les Deux Variables Clés
+
+1. **Fréquence Client sur 24h** (`client_txn_count_24h`)  
+   → Signale une **accélération soudaine** typique d'un compte compromis
+
+2. **Ratio d'Anomalie de Montant** (`amount_vs_mean_type`)  
+   → Identifie les transactions dont le montant s'écarte **significativement** des habitudes du client
+
+Ces variables ont fourni au modèle XGBoost les **indices précis** pour distinguer un comportement frauduleux d'une transaction légitime.
+
 
 
 ### **5\. Bibliographie**
