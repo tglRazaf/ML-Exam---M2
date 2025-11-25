@@ -115,19 +115,24 @@ Le **F1-Score** est la moyenne harmonique de la **Précision** et du **Rappel** 
 
 Le F1-Score nous force à trouver le **meilleur compromis** entre ces deux métriques critiques, garantissant que nous trouvons un maximum de fraudes (Rappel) sans bloquer trop de clients honnêtes (Précision).
 
-#### Processus de Gestion
+**Q2. Qu'est ce qui est plus grave ici, les Faux Positifs ou les Faux Négatifs ?**
 
-1. **Suspension Temporaire**  
-   La transaction est bloquée provisoirement
+Dans le contexte d'une fintech en démarrage comme **PoketraFinday**, les **Faux Négatifs (FN)** sont potentiellement plus graves que les **Faux Positifs (FP)** à long terme.
 
-2. **Notification Instantanée**  
-   Envoi d'un SMS ou notification push au client demandant de confirmer l'opération par une réponse simple (ex: **OUI/NON**)
+| Type d'Erreur | Conséquence Financière / Opérationnelle | Gravité |
+|---------------|------------------------------------------|---------|
+| Faux Négatif (FN) | Perte financière directe pour PoketraFinday ou le client. Surtout, perte de confiance dans le système. Si la plateforme est perçue comme non sécurisée, elle perdra des utilisateurs de manière exponentielle. | Extrême (Impact sur la Réputation et le Taux d'Adoption) |
+| Faux Positif (FP) | Désagrément client (transaction bloquée). Nécessite un appel au support (coût opérationnel). | Élevée (Impact sur l'Expérience Utilisateur) |
 
-3. **Résolution**
-   - **Si le client confirme** → Faux Positif détecté, la transaction est exécutée
-   - **Si le client nie ou ne répond pas** dans un délai très court → La transaction est définitivement annulée et le compte est escaladé vers l'équipe de sécurité
+#### Justification par les Résultats (Compromis)
 
-> **Avantage :** Cette approche minimise l'impact des Faux Positifs tout en protégeant efficacement contre les fraudes réelles.
+Notre modèle final (XGBoost) a trouvé un **excellent compromis** :
+
+- Nous avons toléré **19 Faux Négatifs** (fraudes manquées) pour
+- Maintenir les Faux Positifs à seulement **62**, ce qui est gérable et préserve l'expérience utilisateur.
+
+> **Conclusion :** Bien que les deux types d'erreurs soient dommageables, la perte de confiance due aux FN est **structurelle** pour une fintech en démarrage.
+
 
 ### **5\. Bibliographie**
 *(si vous avez des livres, liens ou articles qui vous ont servi dans ce travail)*
