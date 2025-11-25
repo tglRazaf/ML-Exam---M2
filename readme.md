@@ -189,4 +189,6 @@ Si le modèle détecte une transaction comme fraude, la décision opérationnell
 > **Avantage :** Cette approche minimise l'impact des Faux Positifs tout en protégeant efficacement contre les fraudes réelles.
 
 ### **5\. Bibliographie**
-*(si vous avez des livres, liens ou articles qui vous ont servi dans ce travail)*
+- Cours de Machine Learning - RABOANARY Heriniaina Andry - Master II [2023-2024]
+- Cours de réseau de neurones - RABOANARY Roland - Master I [2022-2023]
+- Cours de statistique - Pierre Benjamin - Licence 3 [2021-2022]
