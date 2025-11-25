@@ -170,6 +170,23 @@ Ces variables ont fourni au modèle XGBoost les **indices précis** pour disting
 - **Caractéristique :** Caractérisée par une anomalie de comportement (soudaine augmentation de la fréquence d'opération, montant inhabituel, etc.), comme l'indiquent les variables `client_txn_count_24h` et `amount_vs_mean_type`
 - **Moyen :** L'attaquant, ayant pris le contrôle du compte, exécute une série rapide de transactions pour vider les fonds
 
+**Q5. Selon vous, quelle décision prendre si une transaction *en cours* est détectée comme *fraude* par le modèle ?**
+
+Si le modèle détecte une transaction comme fraude, la décision opérationnelle optimale est un **Blocage Provisoire (Soft-Block)** immédiat.
+
+#### Processus de Gestion
+
+1. **Suspension Temporaire**  
+   La transaction est bloquée provisoirement
+
+2. **Notification Instantanée**  
+   Envoi d'un SMS ou notification push au client demandant de confirmer l'opération par une réponse simple (ex: **OUI/NON**)
+
+3. **Résolution**  
+   - **Si le client confirme** → Faux Positif détecté, la transaction est exécutée  
+   - **Si le client nie ou ne répond pas** dans un délai très court → La transaction est définitivement annulée et le compte est escaladé vers l'équipe de sécurité
+
+> **Avantage :** Cette approche minimise l'impact des Faux Positifs tout en protégeant efficacement contre les fraudes réelles.
 
 ### **5\. Bibliographie**
 *(si vous avez des livres, liens ou articles qui vous ont servi dans ce travail)*
