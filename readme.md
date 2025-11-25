@@ -148,6 +148,27 @@ Les variables de **Feature Engineering** basées sur le comportement ont été l
 
 Ces variables ont fourni au modèle XGBoost les **indices précis** pour distinguer un comportement frauduleux d'une transaction légitime.
 
+**Q4. Enoncez tous les types de fraudes que vous avez décelé lors de votre analyse**
+
+#### **Fraude 1 : Fraude de type Retrait de Fond (Cash-out)**
+
+- **Caractéristique :** Le type de transaction est `CASH_OUT`
+- **Moyen :** Un attaquant vide le compte du client via un retrait d'argent (souvent le solde entier ou un gros montant)
+
+#### **Fraude 2 : Fraude de type Transfert (P2P/P2B)**
+
+- **Caractéristique :** Le type de transaction est `TRANSFER`
+- **Moyen :** L'attaquant envoie l'argent volé vers un compte complice ou un portefeuille externe
+
+#### **Fraude 3 : Fraude Temporelle / Vol de Compte Nocturne**
+
+- **Caractéristique :** Les transactions se produisent principalement en dehors des heures normales de travail (tard le soir ou tôt le matin, souvent entre 0h et 6h, comme le suggère la variable `is_night_time`)
+- **Moyen :** Exploitation d'une fenêtre de vulnérabilité où le client est endormi et où la surveillance manuelle est faible
+
+#### **Fraude 4 : Fraude par Prise de Contrôle de Compte (ATO - Account Takeover)**
+
+- **Caractéristique :** Caractérisée par une anomalie de comportement (soudaine augmentation de la fréquence d'opération, montant inhabituel, etc.), comme l'indiquent les variables `client_txn_count_24h` et `amount_vs_mean_type`
+- **Moyen :** L'attaquant, ayant pris le contrôle du compte, exécute une série rapide de transactions pour vider les fonds
 
 
 ### **5\. Bibliographie**
